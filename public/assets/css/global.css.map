@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,OAAO,CAAC,2GAAI;AACZ,OAAO,CAAC,yGAAI;AACZ,OAAO,CAAC,kHAAI",
+    "sources": [
+        "global.scss",
+        "_gloablvar.scss"
+    ],
+    "names": [],
+    "file": "global.css"
+}

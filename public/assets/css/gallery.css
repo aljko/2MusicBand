@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css?family=Bebas+Neue|Faster+One|Josefin+Sans|Noto+Sans+TC&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Alatsi|Noto+Sans+JP|Poppins|Squada+One|Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Black+Ops+One|Great+Vibes|Kalam|Kaushan+Script|Monoton&display=swap");
+.gallery-thumbnail {
+  width: 100px;
+  height: auto;
+}
+
+td, th {
+  color: white;
+  font-family: "Josefin Sans", sans-serif;
+}
+/*# sourceMappingURL=gallery.css.map */

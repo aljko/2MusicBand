@@ -1,0 +1,51 @@
+@import "global.css";
+@import "disco.css";
+@import "navbar.css";
+@import "sign.css";
+@import "home.css";
+@import "map.css";
+@import "gallery.css";
+@import "admin.css";
+
+
+.top20{
+    margin-top: 20px;
+}
+.top40{
+    margin-top: 40px;
+}
+.top80{
+    margin-top: 80px;
+}
+.bottom20{
+    margin-bottom: 20px;
+}
+.bottom40{
+    margin-bottom: 40px;
+}
+.bottom80{
+    margin-bottom: 80px;
+}
+.right20{
+    margin-right: 20px;
+}
+.right40{
+    margin-right: 40px;
+}
+.right80{
+    margin-right: 80px;
+}
+.left20{
+    margin-left: 20px;
+}
+.left40{
+    margin-left: 40px;
+}
+.left80{
+    margin-left: 80px;
+}
+.center{
+    justify-content: center;
+    text-align: center;
+    width:500px;
+}

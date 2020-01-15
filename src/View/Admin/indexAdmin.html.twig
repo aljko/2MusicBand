@@ -1,0 +1,55 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+	<title>!!!ADMIN!!!</title>
+{% endblock %}
+
+{% block content %}
+	<div class="container containerTop">
+		<div class="row match-to-row">
+			<p class="alert-title top40 bottom40">Photos</p>
+			<div class="w-100"></div>
+			{% for photo in photos %}
+			{% if photo.ID !=99 %}
+				<div class="card-deck col-sm-4 bottom20">
+					<div class="card">
+						<img src="{{ photo.path_image }}" class="card-img-top" alt="{{ photo.name }}">
+						<div class="card-body">
+							<h5 class="card-title">{{ photo.name }}</h5>
+							<p class="card-text">{{ blog.text }}</p>
+						</div>
+						<div class="card-footer">
+							<a href="validerModerationPhoto/{{ photo.ID }}" class="btn-sign">Valider</a>
+							<a href="supprimerModerationPhoto/{{ photo.ID }}" class="btn-sign">Supprimer</a>
+						</div>
+					</div>
+				</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+	<div class="w-100"></div>
+
+
+	<div class="container containerTop">
+		<div class="row match-to-row">
+			<p class="alert-title top40 bottom40">Commentaires</p>
+			<div class="w-100"></div>
+			{% for comment in comments %}
+				<div class="card-deck col-sm-4 bottom20">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">{{ comment.title }}</h5>
+							<p class="card-text">{{ comment.text }}</p>
+						</div>
+						<div class="card-footer">
+							<a href="validerModerationComment/{{ comment.ID }}" class="btn-sign">Valider</a>
+							<a href="supprimerModerationComment/{{ comment.ID }}" class="btn-sign">Supprimer</a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="w-100"></div>
+{% endblock %}

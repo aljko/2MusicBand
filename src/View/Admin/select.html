@@ -1,0 +1,23 @@
+<script>
+
+document.getElementById("submit").addEventListener("submit",getPhotos);
+
+function getPhotos()
+{
+    let xhr=XMLHttpRequest();
+    xhr.open("POST","../../../src/lib/selechtPhotosById.php",true);
+    xhr.onload=function()
+    {
+        if(this.statuss==200)
+        {
+            console.log("bien");
+        }
+        else
+        {
+            console.log("pas bien");
+        }
+    }
+    xhr.send();
+}
+
+</script>

@@ -1,0 +1,106 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+	<title>!!!ADMIN!!!</title>
+{% endblock %}
+
+
+{% block content %}
+
+	{% if errors!="" %}
+		<p class="h3 alert alert-danger w-100 center">{{errors | join('|')}}</p>
+	{% endif %}
+	<p class="alert-title top40">Gallerys</p>
+	{#################################################GALLERY#################################################}
+	<table class="table top20">
+		<thead>
+			<tr>
+				<th>Gallery Name</th>
+				<th>Gallery ID</th>
+				<th>Suprimer</th>
+				<th>Modifier</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for gallery in gallerys %}
+				{% if gallery.ID != 99 %}
+					<form method="POST" name="route" action="/GalleryName/doRoute">
+						<tr>
+							<td>
+								<input type="type" id="gName" name="galleryName" value="{{gallery.name}}"></td>
+							<td>
+								<input type="hidden" name="galleryID" value="{{gallery.ID}}">{{gallery.ID}}</td>
+							<td>
+								<button class="btn-sign" name="gSup" value="sup">Suprimer</button>
+							</td>
+							<td>
+								<button class="btn-sign" name="gMod" value="mod">Modifier</button>
+							</td>
+						</tr>
+					</form>
+				{% endif %}
+			{% endfor %}
+		</tbody>
+		<tfoot>
+			<tr>
+				<form method="POST" action="/GalleryName/doRoute">
+					<td colspan="4"><input type="text" name="createGalleryName">
+						<button class="btn-sign top20">Créer</button>
+					</td>
+				</form>
+			</tr>
+		</tfoot>
+	</table>
+	{#################################################PHOTOS#################################################}
+	<p class="alert-title top40">Photos</p>
+	<table class="table top40">
+		<thead>
+			<tr>
+				<th>Gallery Name</th>
+				<th>Gallery-ID</th>
+				<th>Photo-Gallery ID</th>
+				<th>Image</th>
+				<th>Suprimer</th>
+				<th>Modifier</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for photo in galleryName %}
+				<tr>
+					<form method="POST" action="/GalleryName/doRoute">
+						<td>
+							<select name="galleryNameID">
+								{% for gallery in gallerys %}
+									{% if gallery.ID != 99 %}
+										<option value="{{gallery.ID}}">{{gallery.name}}</option>
+									{% endif %}
+								{% endfor %}
+							</select>
+						</td>
+						<td>{{photo.nameID}}</td>
+						<td>
+							<input type="hidden" name="photoID" value="{{photo.photoID}}">
+							<input type="hidden" name="galleryPhotoID" value="{{photo.galleryID}}">
+							{{photo.photoID}}</td>
+						<td><img class="gallery-thumbnail" src="{{photo.path_image}}"></td>
+						<td>
+							<button class="btn-sign" name="gpSup" value="sup">Suprimer</button>
+						</td>
+						<td>
+							<button class="btn-sign" name="gpMod" value"mod">Modifier</button>
+						</td>
+					</form>
+				</tr>
+			{% endfor %}
+		</tbody>
+		<tfoot>
+			<tr>
+				<td>
+
+					<a class="btn btn-success" href="/Users/uploadUserImage">Upload Image</a>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+
+{% endblock %}

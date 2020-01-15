@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,OAAO,CAAC,2GAAI;AACZ,OAAO,CAAC,yGAAI;AACZ,OAAO,CAAC,kHAAI;ADAZ,AAAA,kBAAkB,CAAA;EACd,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,IAAI;CACf;;AACD,AAAA,EAAE,EAAE,EAAE,CAAC;EACH,KAAK,ECgBI,KAAkB;EDf3B,WAAW,ECEL,cAAc,EAAE,UAAU;CDDnC",
+    "sources": [
+        "gallery.scss",
+        "_gloablvar.scss"
+    ],
+    "names": [],
+    "file": "gallery.css"
+}

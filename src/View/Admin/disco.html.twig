@@ -1,0 +1,60 @@
+{% extends 'Admin/layout.html.twig' %}
+
+{% block title %}
+    <title>!!!ADMIN!!!Discographie</title>
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-expand navbar-light bg-light">
+        <a class="navbar-brand" href="../">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                {% for menu in menus %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="../{{ menu.path_url }}" tabindex="-1" aria-disabled="true">{{ menu.name }}</a>
+                {% endfor %}
+            </ul>
+        </div>
+    </nav>
+    {% endblock %}
+
+
+    {% block disco %}
+    <div class="container-fluid">        
+        <div class="row disco">
+            {% set countSongs=1 %}
+            {% set countClips=0 %}
+
+            {% for disco in discos %}
+                <div class="col-sm-6 card-disco">
+                    <div class="card" style="width: 18rem;">
+                    
+                        <img src="/{{disco.photo_url}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            {% for discoSong in discoSongs %}
+                                {% if discoSong.cd==countSongs %}
+                                <form action="/Disco/indexAdmin" method="POST">
+                                    <input type="text" name="id" 
+                                    value="{{discoSong.ID}}" hidden>
+                                    <input type="text" name="songTitle" value="{{discoSong.song_title}}">
+                                <input type="submit" value="submit">
+                                </form>
+                                {% endif %}
+                            {% endfor %}
+                                <div class="embed-responsive embed-responsive-4by3">
+                                    <iframe class="embed-responsive-item" src="{{clips[countClips]["path_video"]}}"></iframe>
+                                </div>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                {% set countSongs=countSongs+1 %}
+                {% set countClips=countClips+1 %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}

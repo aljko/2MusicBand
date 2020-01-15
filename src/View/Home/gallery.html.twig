@@ -1,0 +1,105 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+	<title>Gallery</title>
+{% endblock %}
+
+{% block concerts %}
+
+	<img src="/{{photos.path_image}}">
+	<p class="concert-title">{{concert.title}}</p>
+	<div class="concert-text-box">
+		<p class="concert-text">{{concert.date_concert}}</p>
+		<p class="concert-text">{{concert.place}}</p>
+		<p class="concert-text">{{concert.ville}}</p>
+	</div>
+
+{% endblock %}
+
+{% block content  %}
+
+	<div class="map-clip top40 bottom80">
+		<div class="col-5">
+			<p class="h3 alert alert-primary w-100 center">CONCERTS</p>
+			<div class="mapGoogle">
+				<div id="map"></div>
+			</div>
+		</div>
+		<div class="col-5">
+			<p class="h3 alert alert-primary w-100 center">Last Clip</p>
+
+			<iframe class="embed-responsive-item card-video clip" src="{{clip.path_video}}"></iframe>
+		</div>
+	</div>
+	<div class="w-100"></div>
+	<div class="container">
+		<div class="row">
+			{% if commentaire!="" %}
+				<p class="h1 alert alert-danger w-100 center">{{commentaire}}</p>
+			{% endif %}
+			<p class=" h3 alert alert-primary w-100 center">PHOTOS</p>
+			<div class="w-100"></div>
+			<div class="container">
+				<div class="row">
+					{% set temp=1 %}
+					{% for gallery in galleryName %}
+						{% if gallery.nameID==temp  %}
+							<div class="col-auto">
+								<button class="btn btn-primary" id="gallery{{gallery.nameID}}">{{gallery.name}}</button>
+							</div>
+							{% set temp=temp+1 %}
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class="card-columns">
+				{% for photo in galleryName %}
+					<div class="card hideGallery gallery{{photo.nameID}}">
+						<img src="/{{photo.path_image}}" class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">{{photo.name}}</h5>
+							{% for cp in commentsPhotos %}
+								{% if photo.photoID==cp.pID %}
+									<div>{{cp.pseudo}}:{{cp.text}}
+										{% if authority == 'X' %}
+											<a href="/Admin/supprimerModerationComment/{{cp.cID}}"><img src="https://img.icons8.com/color/28/000000/cancel.png"></a>
+										{% endif %}
+									</div>
+								{% endif %}
+							{% endfor %}
+							{% if (authority=='W') or (authority=="X") %}
+								<form method="post" action="/Check/checkCommentaireFromHome">
+									<input type="text" name="comment" placeholder="Laisser un commentaire">
+									<input type="hidden" name="photoID" value="{{photo.photoID}}">
+									<input type="hidden" name="photoTitle" value="{{photo.name}}">
+									<input type="submit" class="btn btn-primary" value="envoyer">
+								</form>
+							{% endif %}
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+
+{# AIzaSyCzlEMyhx5P2biYNSBzFWSWY1N8x2SvJgs #}
+
+
+{% block javascript %}
+	{# NOTE Load google maps JS libraries #}
+	<script src="https://cdn.jsdelivr.net/gmap3/7.2.0/gmap3.min.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzlEMyhx5P2biYNSBzFWSWY1N8x2SvJgs&region=FR"></script>
+	{# NOTE Init gmap3 on div#map and add list of markers #}
+	<script type="text/javascript">
+		$('#map').gmap3({
+center: [
+48.5843, 7.7426
+],
+zoom: 8,
+mapTypeId: google.maps.MapTypeId.ROADMAP
+}).marker({{ jsonConcerts | raw }});
+	</script>
+{% endblock %}

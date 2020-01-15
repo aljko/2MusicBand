@@ -1,0 +1,84 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+	<form method="post" id="form_creation" action="doRoute">
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label class="formtext" for="titre">Titre :</label>
+				<input type="text" class="form-control" name="titre" required>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label class="formtext" for="comment">Article :</label>
+				<textarea rows="4" cols="50" name="comment" required placeholder="Entrez le texte de l'article ici..."></textarea>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label class="formtext" for="id_concert">Concert :</label>
+				<select class="form-control" name="id_concert" id="id_concert">
+					<option value=""></option>
+					{% for concert in concerts %}
+						{% if concert.ID !=99 %}
+							<option value="{{ concert.ID }}">{{ concert.title }}</option>
+						{% endif %}
+					{% else %}
+						<option value="">Nothing to display</option>
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label class="formtext" for="id_clip">Clip :</label>
+				<select class="form-control" name="id_clip" id="id_clip">
+					<option value=""></option>
+					{% for clip in clips %}
+						{% if clip.ID !=99 %}
+							<option value="{{ clip.ID }}">{{ clip.name }}</option>
+						{% endif %}
+					{% else %}
+						<option value="">Nothing to display</option>
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label class="formtext" for="id_photos">Photo :</label>
+				<select class="form-control" name="id_photos" id="id_photos">
+					<option value=""></option>
+					{% for photo in photos %}
+					{% if photo.ID != 99 %}
+						<option value="{{ photo.ID }}">{{ photo.name }}</option>
+						{% endif %}
+					{% else %}
+						<option value="">Nothing to display</option>
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label class="formtext" for="id_gallery">Photo gallery :</label>
+				<select class="form-control" name="id_gallery" id="id_gallery">
+					<option value=""></option>
+					{% for gallery in galleries %}
+						{% if gallery.ID != 99 %}
+						<option value="{{ gallery.ID }}">{{ gallery.name }}</option>
+					{% else %}
+					{% endif %}
+						<option value="">Nothing to display</option>
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-6">
+				<input type="hidden" name="form-submitted" value="1"/>
+				<input class="btn-sign" type="submit" value="Valider" class="float-right">
+			</div>
+		</div>
+	</form>
+{% endblock %}

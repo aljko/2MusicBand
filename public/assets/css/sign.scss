@@ -1,0 +1,45 @@
+@import "./gloablvar";
+
+a{
+    color: $main-color3;
+    &:hover{
+        color:$main-color2
+    }
+}
+.formtext{
+    margin: 0px;
+    padding: 0px;
+    font-size: 20px;
+    font-family: $josefin;
+    color: rgba(245, 245, 245, 0.726);
+    font-weight: 800;
+    text-align: center;
+}
+
+form{
+    margin:40px;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    .form-group{
+        width: 500px;
+        @media screen and (max-width: 800px) {
+            width: 300px;
+        }
+    }
+}
+.warningtext
+{
+    margin: 0px;
+    padding: 0px;
+    font-size: 20px;
+    font-family: $josefin;
+    color: rgba(255, 0, 0, 0.726);
+    font-weight: 800;
+}
+.btn-sign{
+    color:$main-color3;
+    background:$main-color2;
+    border-radius: 0px;
+    border:2px solid $main-color4; 
+}

@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+{% block title %}
+    <title>Concerts</title>
+{% endblock %}
+{% block content %}
+    </br>
+    <div class="container">
+        {% for concert in concerts %}
+                    <div class="card mb-3" style="max-width: 11git 00px;">
+                        <div class="row no-gutters">
+                            <div class="col-md-5">
+                                <img src="/assets/photos/site/{{concert.photo}}" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ concert.title }}</h5>
+                                    <p class="card-text">{{ concert.place }}, {{ concert.addresse }}</p>
+                                    <p class="card-text">{{ concert.zipcode }} {{ concert.ville }}</p>
+                                    <p class="card-text"><small class="text-muted">{{ concert.date_concert }}</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
+

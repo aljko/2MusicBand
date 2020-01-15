@@ -1,0 +1,18 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <dl class="row">
+        <dt class="col-sm-3">Name</dt>
+        <dd class="col-sm-9">{{ menu.name }}</dd>
+
+        <dt class="col-sm-3">Path_url</dt>
+        <dd class="col-sm-9">{{ menu.path_url }}</dd>
+
+        <dt class="col-sm-3">Position</dt>
+        <dd class="col-sm-9">{{ menu.position }}</dd>
+
+        <dt class="col-sm-3">Authority</dt>
+        <dd class="col-sm-9">{{ menu.authority }}</dd>
+
+    </dl>
+{% endblock %}

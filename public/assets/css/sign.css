@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css?family=Bebas+Neue|Faster+One|Josefin+Sans|Noto+Sans+TC&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Alatsi|Noto+Sans+JP|Poppins|Squada+One|Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Black+Ops+One|Great+Vibes|Kalam|Kaushan+Script|Monoton&display=swap");
+a {
+  color: white;
+}
+
+a:hover {
+  color: #500000;
+}
+
+.formtext {
+  margin: 0px;
+  padding: 0px;
+  font-size: 20px;
+  font-family: "Josefin Sans", sans-serif;
+  color: rgba(245, 245, 245, 0.726);
+  font-weight: 800;
+  text-align: center;
+}
+
+form {
+  margin: 40px;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  text-align: center;
+}
+
+form .form-group {
+  width: 500px;
+}
+
+@media screen and (max-width: 800px) {
+  form .form-group {
+    width: 300px;
+  }
+}
+
+.warningtext {
+  margin: 0px;
+  padding: 0px;
+  font-size: 20px;
+  font-family: "Josefin Sans", sans-serif;
+  color: rgba(255, 0, 0, 0.726);
+  font-weight: 800;
+}
+
+.btn-sign {
+  color: white;
+  background: #500000;
+  border-radius: 0px;
+  border: 2px solid #181818;
+}
+/*# sourceMappingURL=sign.css.map */

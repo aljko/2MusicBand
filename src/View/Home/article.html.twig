@@ -1,0 +1,72 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block title %}
+	<title>Biographie</title>
+{% endblock %}
+{% block content %}
+
+
+	<div class="titles-bio top80">
+		<p class="alert-title bottom40">{{blogs.blogTitle}}
+		</p>
+	</div>
+	<div class="site-article-grid">
+		{% if blogs.path_image!="" %}
+			<img class="site-article-grid-img" id="{{blogs.photoID}}" src="{{ blogs.path_image }}">
+		{% endif %}
+		{% if blogs.path_video!="" %}
+			<iframe class="site-article-grid-video" src="{{blogs.path_video}}"></iframe>
+		{% endif %}
+		<p class="site-article-grid-text">
+			{{ blogs.text }}
+		</p>
+		{% if blogs.id_pool_photos!=99 %}
+			<div class="site-article-grid-gallery">
+				{% for gPhoto in galleryPhoto %}
+					{% if gPhoto.id_gallery_name==blogs.id_pool_photos %}
+						{% for photo in galleryName %}
+							{% if photo.photoID==gPhoto.id_photos %}
+								{% if photo.photoID!=99 %}
+									<img class="site-article-grid-gallery-img" id="{{photo.photoID}}" src="{{ photo.path_image }}">
+								{% endif %}
+							{% endif %}
+						{% endfor %}
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+
+	{% for photo in galleryName %}
+		<div class="hiddenForm{{photo.photoID}}" id="hiddenForm">
+			{% if photo.photoID!=99 %}
+				<div class="col-6">
+					<img class="bigImage" id="{{photo.photoID}}" src="{{photo.path_image}}" alt="...">
+				</div>
+			{% endif %}
+			<div class="col-auto">
+				{% for cp in commentsPhotos %}
+					{% if photo.photoID==cp.pID %}
+						<div>{{cp.pseudo}}:{{cp.text}}
+							{% if authority == 'X' %}
+								<a href="/Admin/supprimerModerationComment/{{cp.cID}}"><img src="https://img.icons8.com/color/28/000000/cancel.png"></a>
+							{% endif %}
+						</div>
+					{% endif %}
+				{% endfor %}
+				{% if photo.photoID!=99 %}
+					{% if (authority=='W') or (authority=="X") %}
+						<form method="post" action="/Check/checkCommentaireFromHome">
+							<input type="text" name="comment" placeholder="Laisser un commentaire">
+							<input type="hidden" name="photoID" value="{{photo.photoID}}">
+							<input type="hidden" name="photoTitle" value="{{photo.name}}">
+							<input type="submit" class="btn btn-primary" value="envoyer">
+						</form>
+					{% endif %}
+				{% endif %}
+			</div>
+		</div>
+		<div class="w-100"></div>
+	{% endfor %}
+{% endblock %}

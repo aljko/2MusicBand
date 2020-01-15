@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Bangers|Courgette|Kaushan+Script|Permanent+Marker|Tangerine&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Bebas+Neue|Faster+One|Josefin+Sans|Noto+Sans+TC&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Alatsi|Noto+Sans+JP|Poppins|Squada+One|Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Black+Ops+One|Great+Vibes|Kalam|Kaushan+Script|Monoton&display=swap");
+.disco {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  margin-top: 80px;
+  padding: 0px;
+  background-color: rgba(12, 12, 12, 0.5);
+  border-radius: 10px;
+  border: 0px solid #3d3d3d;
+  -webkit-box-shadow: 10px 10px 10px black;
+          box-shadow: 10px 10px 10px black;
+  text-shadow: 10px 10px 10px black;
+}
+
+.card-img {
+  width: 200px;
+  height: 200px;
+  border: 10px solid black;
+  -webkit-box-shadow: 10px 10px 10px black;
+          box-shadow: 10px 10px 10px black;
+}
+
+.card-disco {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 0px;
+}
+
+.cd_title {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 36px;
+  width: 100%;
+  text-align: center;
+  border: 0px solid #3d3d3d;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.card-video {
+  border: 5 solid black;
+  -webkit-box-shadow: 10px 10px 10px black;
+          box-shadow: 10px 10px 10px black;
+}
+
+.song_title {
+  border: 0px solid #3d3d3d;
+  font-family: "Josefin Sans", sans-serif;
+  width: 250px;
+  height: 28px;
+  color: white;
+  background-color: #686868;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.song_title:nth-child(even) {
+  background: #500000;
+}
+/*# sourceMappingURL=disco.css.map */

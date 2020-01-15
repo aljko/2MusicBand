@@ -1,0 +1,175 @@
+{% extends 'layout.html.twig' %}
+{% block title %}
+	<title>Em Remes Sini</title>
+{% endblock %}
+{% block concerts %}
+
+	<img class="concert-image" src="{{photos.path_image}}">
+
+	<div class="concert-text-box">
+		<p class="concert-title">{{concert.title}}</p>
+		<p>{{concert.date_concert | date("d.m.Y")}}</p>
+		<p>{{concert.place}}</p>
+		<p>{{concert.ville}}</p>
+	</div>
+
+{% endblock %}
+{% block content  %}
+	{#<div class ="carre" style="width: 200px; height: 200px; background: white">
+				<form method="post" action="/Capture/count">
+					<input TYPE="hidden" name="chanteur" value="1">
+					<input type="submit" value="envoyer">
+				</form>
+			</div>
+			<div class ="carre" style="width: 200px; height: 200px; background: red">
+				<form method="post">
+					<input TYPE="hidden" name="chanteur" value="2">
+					<input type="submit" value="envoyer">
+				</form>
+			</div>
+			<div class ="carre" style="width: 200px; height: 200px; background: blue">
+				<form method="post">
+					<input TYPE="hidden" name="chanteur" value="4">
+					<input type="submit" value="envoyer">
+				</form>
+			</div>
+			<div class ="carre" style="width: 200px; height: 200px; background: green">
+				<form method="post">
+					<input TYPE="hidden" name="chanteur" value="8">
+					<input type="submit" value="envoyer">
+				</form>
+			</div>
+			<div class ="carre" style="width: 200px; height: 200px; background: yellow">
+				<form method="post">
+					<input TYPE="hidden" name="chanteur" value="16">
+					<input type="submit" value="envoyer">
+				</form>
+			</div>
+			#}
+	{# -------------------------------Actualites------------------------------------#}
+		<div class="col-12 titles"> <p class=" alert-title top80">Actualites</p>
+	</div>
+	<div class="w-100"></div>
+	<div class="grid-col">
+		{% for blog in blogs %}
+			<div id="article" class="grid-actualites">
+				{% if blog.path_image!="" %}
+					<img class="grid-image" src="{{ blog.path_image }}">
+				{% endif %}
+				{% if blog.path_video!="" %}
+					<iframe class="grid-video" src="{{blog.path_video}}"></iframe>
+				{% endif %}
+				<p class="grid-title">{{ blog.blogTitle }}
+					{{ blog.ville }}</p>
+				<p class="grid-text"><a href="/Home/article/{{blog.blogID}}">{{ blog.text |slice(0,330) }}</a></p>
+				{% if blog.id_pool_photos!=99 %}
+					<div class="grid-gallery-images">
+						{% for gPhoto in galleryPhoto %}
+							{% if gPhoto.id_gallery_name==blog.id_pool_photos %}
+								{% for photo in galleryName %}
+									{% if photo.photoID==gPhoto.id_photos %}
+										{% if photo.photoID!=99 %}
+											<img class="grid-gallery-image" id="{{photo.photoID}}" src="{{ photo.path_image }}">
+										{% endif %}
+									{% endif %}
+								{% endfor %}
+							{% endif %}
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+		{% endfor %}
+	</div>
+	<div class="w-100 top20"></div>
+	<div class="col-12">
+		<ul class="pagination">
+			{% for page in 1..nbPage %}
+				<li class="page-item">
+					<a class="page-link" href="/Home/index/{{ page }}#article">{{ page }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="w-100"></div>
+	{# -------------------------------Concerts - Last Clip------------------------------------#}
+	<div class="container">
+		<div class="col map-clip top40 bottom80">
+			<div class="col-auto titles">
+				<p class="alert-title">Concerts</p>
+				<div class="mapGoogle">
+					<div id="map"></div>
+				</div>
+			</div>
+			<div class="col	titles">
+				<p class="alert-title">Last Clip</p>
+				<iframe class="embed-responsive-item card-video clip" src="{{clip.path_video}}"></iframe>
+			</div>
+		</div>
+	</div>
+	<div class="w-100"></div>
+	{# -------------------------------Photos------------------------------------#}
+	<div class="col-12">
+		{% if commentaire!="" %}
+			<p class="h1 alert alert-danger w-100 center">{{commentaire}}</p>
+		{% endif %}
+		<div class="col-12 titles-photo">
+			<p class="alert-title bottom80">Photos</p>
+		</div>
+		<div class="w-100"></div>
+	</div>
+	{# -------------------------------Photos Form------------------------------------#}
+	{% for photo in galleryName %}
+		<div class="hiddenForm{{photo.photoID}}" id="hiddenForm">
+			{% if photo.photoID!=99 %}
+				<div class="col-6">
+					<img class="bigImage" id="{{photo.photoID}}" src="{{photo.path_image}}" alt="...">
+				</div>
+			{% endif %}
+			<div class="col-auto">
+				{% for cp in commentsPhotos %}
+					{% if photo.photoID==cp.pID %}
+						<div>{{cp.pseudo}}:{{cp.text}}
+							{% if authority == 'X' %}
+								<a href="/Admin/supprimerModerationComment/{{cp.cID}}"><img src="https://img.icons8.com/color/28/000000/cancel.png"></a>
+							{% endif %}
+						</div>
+					{% endif %}
+				{% endfor %}
+				{% if photo.photoID!=99 %}
+					{% if (authority=='W') or (authority=="X") %}
+						<form method="post" action="/Check/checkCommentaireFromHome">
+							<input type="text" name="comment" placeholder="Laisser un commentaire">
+							<input type="hidden" name="photoID" value="{{photo.photoID}}">
+							<input type="hidden" name="photoTitle" value="{{photo.name}}">
+							<input type="submit" class="btn btn-primary" value="envoyer">
+						</form>
+					{% endif %}
+				{% endif %}
+			</div>
+		</div>
+		<div class="w-100"></div>
+	{% endfor %}
+	{# -------------------------------Photos Carré------------------------------------#}
+	<div class="grid-gallery">
+		{% for photo in galleryName %}
+			{% if photo.photoID!=99 %}
+				<img class="grid-photo" id="{{photo.photoID}}" src="{{photo.path_image}}" alt="...">
+			{% endif %}
+		{% endfor %}
+	</div>
+
+{% endblock %}
+{# -------------------------------Map------------------------------------#}
+{% block javascript %}
+	{# NOTE Load google maps JS libraries #}
+	<script src="https://cdn.jsdelivr.net/gmap3/7.2.0/gmap3.min.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzlEMyhx5P2biYNSBzFWSWY1N8x2SvJgs&region=FR"></script>{# NOTE Init gmap3 on div#map and add list of markers #}<script type="text/javascript">
+		$('#map').gmap3({
+center: [
+48.5843, 7.7426
+],
+zoom: 8,
+mapTypeId: google.maps.MapTypeId.ROADMAP
+}).marker({{ jsonConcerts | raw }});
+	</script>
+{% endblock %}

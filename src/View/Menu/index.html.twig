@@ -1,0 +1,35 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    {% if message is defined %}
+    <div class="alert alert-success" role="alert">
+        {{ message }}
+    </div>
+    {% endif %}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Path</th>
+        <th scope="col">Position</th>
+        <th scope="col">Authority</th>
+        <th scope="col">Options</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for menu in menus %}
+    <tr>
+        <th scope="row">{{menu.name}}</th>
+        <td>{{menu.path_url}}</td>
+        <td>{{menu.position}}</td>
+        <td>{{menu.authority}}</td>
+        <td>
+        <a href="/menu/show/{{menu.id}}"><img src="https://img.icons8.com/cotton/2x/search--v5.png" width="32px"></a>
+        <a href="/menu/delete/{{menu.id}}">Delete</a> </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    <p align="right">
+        <a href="/menu/add"><img src="https://www.kapela.fr/wp-content/uploads/2019/03/add.png" width="32px"></a>
+    </p>
+{% endblock %}

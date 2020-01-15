@@ -1,0 +1,11 @@
+{% block photos %}
+    <p class="contentTitel">Photos</p>
+{% for photo in photos %}
+    <figure class="contentFigure">
+        <img class="contentImg" src="{{% photo.path_image %}}">
+        <figcaption class="contentFigcaption">{{% photo.name %}}</figcaption>
+        <a class="contentValider" href="actions/moderation/validerModerationPhoto.php?id={{% photo.ID %}}">Valider</a>
+        <a class="contentSupprimer" href="actions/moderation/supprimerModerationPhoto.php?id={{% photo.ID %}}">Supprime</a>
+    </figure>
+{% endfor %}
+{% endblock %}

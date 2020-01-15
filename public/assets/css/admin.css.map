@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,OAAO,CAAC,2GAAI;AACZ,OAAO,CAAC,yGAAI;AACZ,OAAO,CAAC,kHAAI;ADEZ,AAAA,KAAK,CAAA;EACD,gBAAgB,ECmBP,OAAe;CDjB3B;;AAMD,AAAA,WAAW,CAAA;EACP,KAAK,ECSI,KAAkB;EDR3B,WAAW,ECLL,cAAc,EAAE,UAAU;EDMhC,SAAS,EAAE,IAAI;CAClB;;AAED,AAAA,UAAU,CAAA;EACN,KAAK,ECGI,KAAkB;EDF3B,WAAW,ECXL,cAAc,EAAE,UAAU;EDYhC,SAAS,EAAE,IAAI;CAClB",
+    "sources": [
+        "admin.scss",
+        "_gloablvar.scss"
+    ],
+    "names": [],
+    "file": "admin.css"
+}

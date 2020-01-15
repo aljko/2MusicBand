@@ -1,0 +1,59 @@
+@import "./discovar";
+@import "./gloablvar";
+
+.disco{
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 80px;
+    padding: 0px;
+    background-color: $background-color;
+    border-radius: 10px;
+    border:0px solid $border-color;
+    box-shadow: 10px 10px 10px black;
+    text-shadow: 10px 10px 10px black;
+}
+.card-img{
+
+    width:200px;
+    height: 200px;
+    border:10px solid black;
+    box-shadow: 10px 10px 10px black;
+
+}
+.card-disco{
+    display:flex;
+    justify-content: center;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0px;
+}
+.cd_title{
+    font-family: $font-family-josefin;
+    font-size: 36px;
+    width: 100%;
+    text-align: center;
+    border:0px solid $border-color;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    color: $font-color;
+}
+.card-video{
+    border:5 solid black;
+    box-shadow: 10px 10px 10px black;
+}
+.song_title{
+    border:0px solid $border-color;
+
+    font-family: $font-family-josefin;
+    width: 250px;
+    height: 28px;
+    color: $font-color;
+    background-color: rgb(104, 104, 104);
+    justify-content: center;
+    text-align: center;
+    &:nth-child(even){
+        background: $main-color2;
+    }
+}

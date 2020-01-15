@@ -1,0 +1,37 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+	<a href="index" class="btn btn-success top40 bottom40">Create</a>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Text</th>
+				<th>Concert</th>
+				<th>Clip</th>
+				<th>Photo</th>
+				<th>Gallery</th>
+				<th>{# Actions #}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for article in articles %}
+				<tr>
+					<td scope="row">{{ article.title }}</td>
+					<td>{{ article.text }}</td>
+					<td>{{ article.concert }}</td>
+					<td>{{ article.clip }}</td>
+					<td>{{ article.photo }}</td>
+					<td>{{ article.gallery }}</td>
+					<td>
+						<form method="post" action="doSessions">
+							<input type="hidden" name="id_blog" value="{{ article.blogID }}"/>
+							<input type="submit" value="Update" class="btn btn-sign">
+						</form>
+						<a href="deleteArticle/{{ article.blogID }}" class="btn btn-sign">Delete</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

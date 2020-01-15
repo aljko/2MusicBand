@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css?family=Bebas+Neue|Faster+One|Josefin+Sans|Noto+Sans+TC&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Alatsi|Noto+Sans+JP|Poppins|Squada+One|Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Black+Ops+One|Great+Vibes|Kalam|Kaushan+Script|Monoton&display=swap");
+.navbar-brand {
+  color: white;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 36px;
+}
+
+.navbar-brand:hover {
+  color: #500000;
+}
+
+.navbar-brand:link {
+  color: white;
+}
+
+@media screen and (max-width: 800px) {
+  .navbar-brand {
+    font-size: 18px;
+  }
+}
+
+.navbarNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  text-align: right;
+}
+
+.nav-wrapper {
+  width: 100vw;
+  max-width: 1200px;
+  margin: 0px !important;
+  height: 60px;
+  background-color: #2f3332;
+  position: absolute;
+  top: 100px;
+  z-index: 10 !important;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  -webkit-box-shadow: 5px 5px 10px #500000;
+          box-shadow: 5px 5px 10px #500000;
+}
+
+.nav-wrapper ul {
+  margin: 0 auto;
+}
+
+.nav-wrapper ul li {
+  text-transform: uppercase;
+  padding: 0 3px;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.nav-wrapper ul li i.menu-leaf {
+  font-size: 35px;
+  color: white;
+}
+
+.nav-wrapper ul li a {
+  color: white;
+}
+
+.nav-wrapper ul li a:hover {
+  color: #500000;
+}
+
+.nav-wrapper ul li i.menu-search {
+  font-size: 25px;
+}
+
+.dropdown-parent {
+  /* Overriding Bootstrap CSS */
+  min-width: 6.5rem !important;
+  padding: 0 !important;
+  background-color: white !important;
+  background-clip: unset !important;
+  border: none !important;
+}
+
+.collapse {
+  background: #2f3332;
+}
+
+#company-link {
+  padding-top: 8px !important;
+  padding-right: 0.5rem !important;
+  padding-left: 0.5rem !important;
+}
+
+#company-link:focus, #company-link:hover {
+  /* Overriding Bootstrap CSS */
+  background-color: #181818 !important;
+}
+
+.dropdown-child {
+  padding-top: 5px !important;
+  padding-right: 0.5rem !important;
+  padding-left: 0.5rem !important;
+  border-top: 1px solid #500000 !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  border-radius: 0px !important;
+  background-color: #181818 !important;
+}
+
+.dropdown-menu {
+  background-color: #181818 !important;
+}
+
+.dropdown-item {
+  background-color: #181818 !important;
+}
+
+.dropdown-item:hover {
+  background-color: #181818 !important;
+}
+
+.fa-bars {
+  color: white;
+}
+/*# sourceMappingURL=navbar.css.map */

@@ -1,0 +1,52 @@
+{%if photos %}
+{% block Photos %}
+    <p class="contentTitel">Photos</p>
+{% for photo in photos %}
+    <figure class="contentFigure">
+        <img class="contentImg" src="{{% photo.path_image %}}">
+        <figcaption class="contentFigcaption">{{% photo.name %}}</figcaption>
+        <a class="contentValider" href="actions/moderation/validerModerationPhoto.php?id={{% photo.ID %}}">Valider</a>
+        <a class="contentSupprimer" href="actions/moderation/supprimerModerationPhoto.php?id={{% photo.ID %}}">Supprime</a>
+    </figure>
+{% endfor %}
+{% endblock %}
+{% endif %}
+
+
+{% if not blogsWithPhoto %}
+{% block Blogs %}
+    <p class="contentTitel">Photos</p>
+{% for blogPhoto in blogsPhoto %}
+    <figure class="contentFigure">
+        <img class="contentImg" src="{{% blogPhoto.path_image %}}">
+        <figcaption class="contentFigcaption">{{% blogPhoto.name %}}</figcaption>
+        <a class="contentValider" href="actions/moderation/validerModerationPhoto.php?id={{% blogPhoto.ID %}}">Valider</a>
+        <a class="contentSupprimer" href="actions/moderation/supprimerModerationPhoto.php?id={{% blogPhoto.ID %}}">Supprime</a>
+    </figure>
+{% endfor %}
+{% endblock %}
+{% else %}
+{% block Blogs %}
+    <p class="contentTitel">Commentaires</p>
+{% for comment in comments %}
+    <figure class="contentFigure">
+        <figcaption class="contentFigcaption">{{% comment.titel %}}: {{% comment.text %}}</figcaption>
+        <a class="contentValider" href="actions/moderation/validerModerationComment.php?id={{% comment.ID %}}">Valider</a>
+        <a class="contentSupprimer" href="actions/moderation/supprimerModerationComment.php?id={{% comment.ID %}}">Supprime</a>
+    </figure>';
+{% endfor %}
+{% endblock %}
+{% endif %}
+
+{% if comments}
+{% block comments %}
+    <p class="contentTitel">Commentaires</p>
+{% for comment in comments %}
+    <figure class="contentFigure">
+        <figcaption class="contentFigcaption">{{% comment.titel %}}: {{% comment.text %}}</figcaption>
+        <a class="contentValider" href="actions/moderation/validerModerationComment.php?id={{% comment.ID %}}">Valider</a>
+        <a class="contentSupprimer" href="actions/moderation/supprimerModerationComment.php?id={{% comment.ID %}}">Supprime</a>
+    </figure>';
+{% endfor %}
+{% endblock %}
+{% endif %}

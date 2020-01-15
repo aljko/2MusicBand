@@ -1,0 +1,382 @@
+@import "./homevar";
+@import "./gloablvar";
+
+body{
+    background: $main-color1;
+    margin:0px;
+    padding:0px;
+    color:$main-color3;
+}
+.biographie-text{
+    text-align: left;
+    margin:20px;
+}
+.btn-photo{
+    background: $main-color2;
+    border:1px solid $main-color4;
+    color: $main-color3;
+}
+.container-full{
+    margin:0px auto;
+    padding: 0px;
+    padding-right:0;
+    padding-left:0;
+    max-width: 1200px;
+    text-align: center;
+    justify-content: center;
+}
+.row{
+    margin:20px ;
+    text-align: center;
+    justify-content: center;
+    @media screen and (max-width: 375px) {
+        margin:0px;
+    }
+
+    
+}
+.titles{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    width:40vw;
+    z-index: 0;
+    @media screen and (max-width: 800px) {
+        width: 100vw;
+      }
+}
+
+.titles-photo{
+    @extend .titles;
+    width:100vw;
+}
+.titles-bio{
+    @extend .titles;
+    width:100vw;
+}
+.bio-photo{
+    width: 80vw;
+    @media screen and (max-width: 800px) {
+        font-size: 48px;
+      }
+}
+.alert-title{
+    background:$main-color1 !important;
+    font-family: $josefin;
+    font-size: 18px;
+    color:$main-color3;
+    border:1px solid $main-color2;
+    border-radius: 0px;
+    box-shadow: 5px 5px 1px $main-color2; 
+    width: 200px;
+    text-align: center;
+    z-index:0;
+}
+.concert-image{
+    width: 1200px;
+    height: 130vh;
+    object-fit: cover;
+}
+
+.concert-title{
+    font-size: 142px;
+    line-height: 100%;
+    font-family: $kaushan;
+    color: $main-color2;
+    text-shadow: -2px 0 $main-color4, 
+    0 2px $main-color4, 
+    2px 0 $main-color3, 
+    0 -2px $main-color3;
+    @media screen and (max-width: 1100px) {
+        font-size: 120px;
+      }
+      @media screen and (max-width: 1000px) {
+        font-size: 80px;
+      }
+    @media screen and (max-width: 800px) {
+        font-size: 48px;
+      }
+      @media screen and (max-width: 375px) {
+        font-size: 30px;
+      }
+
+}
+.concert-text-box{
+    position: absolute;
+    text-align: center;
+    top: 60%; left: 50%; /* à 50%/50% du parent référent */
+    transform: translate(-50%, -50%);
+    font-size: 52px;
+    font-family: $kaushan;
+    z-index: 99;
+    color: $main-color2;
+    text-shadow: -2px 0 $main-color4, 
+    0 2px $main-color4, 
+    2px 0 $main-color3, 
+    0 -2px $main-color3;
+    @media screen and (max-width: 800px) {
+        font-size: 24px;
+        text-align: center;
+        top: 50%; left: 50%; /* à 50%/50% du parent référent */
+        transform: translate(-50%, -50%);
+      }
+      @media screen and (max-width: 800px) {
+        font-size: 20px;
+        text-align: center;
+        top: 50%; left: 50%; /* à 50%/50% du parent référent */
+        transform: translate(-50%, -50%);
+      }
+}
+
+.map-clip{
+    display: flex;
+    margin: 20px;
+    padding: 0px;
+    justify-content: space-between;
+    text-align: center;
+    flex-flow: row,nowrap;
+    @media screen and (max-width: 800px) {
+        margin:0px;
+        flex-flow: column;
+        justify-content: center;
+    }
+    @media screen and (max-width: 600px) {
+        margin:0px;
+        flex-flow: column;
+        justify-content: center;
+    }
+}
+
+.clip{
+    border-radius: 0px;
+    border:2px solid $main-color2;
+    width: 100%;
+    height: 300px;
+    box-shadow: 5px 5px 2px $main-color2;
+}
+
+.grid-gallery{
+    display:grid;
+    margin:0px;
+    padding:0px;
+    text-align: center;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: auto;
+    row-gap: 0px;
+    column-gap: 0px;
+    width: auto;
+    height: auto;
+    @media screen and (max-width: 1000px) {
+        grid-template-columns: repeat(3,1fr);
+    }
+    @media screen and (max-width: 620px) {
+        grid-template-columns: repeat(2,1fr);
+    }
+    @media screen and (max-width: 375px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.grid-photo{
+    grid-column: auto;
+    grid-row: auto;
+    margin: 0px;
+    padding:0px;
+    padding-right:0;
+    padding-left:0;
+    row-gap: 0px;
+    column-gap: 0px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+#hiddenForm{
+    display: none;
+    position: absolute;
+    top: 0px; left: 50%; /* à 50%/50% du parent référent */
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
+    z-index: 9 ;
+    color:$main-color3;
+    background: $main-color4;
+    text-align: center;
+
+}
+.bigImage{
+
+    width: 100vw;
+    max-height:500px;
+    object-fit: contain;
+    @media screen and (max-width: 800px) {
+        
+    }
+}
+
+.grid-col{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+    }
+
+    
+}
+.grid-actualites{
+    display:grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: auto;
+    width: 45vw;
+    margin:0px;
+    padding: 20px;  
+    row-gap: 10px;
+    column-gap: 10px;
+    @media screen and (max-width: 700px) {
+        width: 90vw;
+        grid-auto-flow: column;
+        grid-template-columns:1fr;
+    }
+}
+.grid-title{
+    grid-column:1/ span 2;
+    grid-row:1;
+    text-align: center;
+    color:$main-color3;
+    font-family: $josefin;
+    @media screen and (max-width: 700px) {
+        grid-column:1;
+        grid-row:1;
+    }
+}
+.grid-image{
+    grid-column: 1;
+    grid-row:2;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    align-self: center;
+    width: 90%;
+    height: 200px;
+    object-fit: cover;
+    @media screen and (max-width: 700px) {
+        grid-column:1;
+        grid-row:2;
+    }
+}
+.grid-video{
+    grid-column: 1;
+    grid-row:3;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    align-self: center;
+    width: 90%;
+    height: 200px;
+    object-fit: cover;
+    @media screen and (max-width: 700px) {
+        grid-column:1;
+        grid-row:3;
+    }
+}
+.grid-gallery-images{
+    grid-column: 1/span 2;
+    grid-row:auto;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    align-self: center;
+    width: 90%;
+    height: auto;
+    display:grid;
+    margin:0px;
+    padding:0px;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 1;
+    row-gap: 0px;
+    column-gap: 0px;
+
+}
+.grid-gallery-image{
+    grid-column: auto;
+    grid-row: 1;
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+}
+
+.grid-text{
+    grid-column: 2;
+    grid-row: 2 /span 10;
+    text-align: left;
+    color: $main-color3;
+    font-family: $josefin;
+    padding: 10px;
+    @media screen and (max-width: 700px) {
+        grid-column:1;
+        grid-row:4;
+    }
+}
+ul
+{
+    justify-content: center;
+    text-align: center;
+}
+
+.site-article-grid{
+    display:grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr,1fr;
+    grid-template-rows: auto;
+    width: 100%;
+    margin:0px;
+    padding: 00px;  
+    row-gap: 10px;
+    column-gap: 10px;
+}
+
+.site-article-grid-img{
+    grid-column: 1;
+    grid-row: auto;
+    width: 40%;
+    height: auto;
+    object-fit: scale-down;
+}
+
+.site-article-grid-video{
+    grid-column: 1;
+    grid-row: auto;
+    width: 40%;
+    height: 100%;
+    object-fit: scale-down;
+}
+.site-article-grid-text{
+    grid-column: 2;
+    grid-row: 1 /span 2;
+}
+.site-article-grid-gallery{
+    grid-column: 1/span 2;
+
+    display:grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+    margin:0px;
+    padding: 20px;  
+    row-gap: 10px;
+    column-gap: 10px;
+}
+.site-article-grid-gallery-img{
+    grid-column: auto;
+    grid-row: auto;
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+
+}

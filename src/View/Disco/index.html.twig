@@ -1,0 +1,38 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+	<title>Discographie</title>
+{% endblock %}
+
+
+
+	{% block content %}
+	{% set countSongs=1 %}
+	{% set countClips=0 %}
+	{% for disco in discos %}
+<div class="container-fluid">
+	<div class="row disco">
+
+			<h5 class="cd_title col-sm-12 top20">{{disco.cd_title}}</h5>
+
+
+			<div class="w-100 top20"></div>
+
+			<div class="col-md-5">
+				<img src="/{{disco.photo_url}}" class="card-img" alt="...">
+			</div>
+			<div class="col-md-5">
+				<iframe class="embed-responsive-item card-video" src="{{clips[countClips]["path_video"]}}"></iframe>
+			</div>
+			<div class="w-100 top40"></div>
+			{% for discoSong in discoSongs %}
+				{% if discoSong.cd==countSongs %}
+					<p class="song_title">{{discoSong.song_title}}</p>
+				{% endif %}
+			{% endfor %}
+			<div class="w-100 top40"></div>
+
+	</div>
+</div>
+{% set countSongs=countSongs+1 %}
+{% set countClips=countClips+1 %}{% endfor %}{% endblock %}

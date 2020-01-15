@@ -1,0 +1,10 @@
+{% block comments %}
+    <p class="contentTitel">Commentaires</p>
+{% for comment in comments %}
+    <figure class="contentFigure">
+        <figcaption class="contentFigcaption">{{% comment.titel %}}: {{% comment.text %}}</figcaption>
+        <a class="contentValider" href="actions/moderation/validerModerationComment.php?id={{% comment.ID %}}">Valider</a>
+        <a class="contentSupprimer" href="actions/moderation/supprimerModerationComment.php?id={{% comment.ID %}}">Supprime</a>
+    </figure>';
+{% endfor %}
+{% endblock %}

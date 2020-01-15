@@ -1,0 +1,38 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+	<title>Upload Image</title>
+{% endblock %}
+
+{% block content %}
+<div class="col-sm-12">
+	<p class="warningtext">{{session}}</p>
+</div>
+<form action="createUserImage" method="POST" enctype="multipart/form-data">
+
+	<div class="form-group">
+		<input class="formtext" type="file" name="fileToUpload" id="fileToUpload">
+	</div>
+	<div class="form-group">
+		<input type="text" name="description" placeholder="description">
+	</div>
+	<div class="from-group">
+		<label for="gallery">
+		<p class ="formtext" >Gallerys:</p>
+		</label>
+		<br>
+		<select name="gallery">
+			<option value="" active></option>
+			{% for gallery in gallerys %}
+				{% if gallery.ID!=99 %}		
+				<option value="{{gallery.ID}}">{{gallery.name}}</option>
+				{% endif %}
+			{% endfor %}
+		</select>
+	</div>
+	<div class="form-group">
+		<button type="submit" class="btn-sign">SignIn</button>
+	</div>
+	</form>
+
+{% endblock %}

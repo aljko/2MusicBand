@@ -1,0 +1,53 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+	<title>SignUp</title>
+{% endblock %}
+
+
+{% block content %}
+
+	<div class="col-sm-12">
+		<p class="warningtext">{{sessions.signup}}</p>
+	</div>
+	<form action="checkSignUp" method="POST">
+		<div class="form-group">
+			<label for="firstname">
+				<p class="formtext">{{sessions.firstname}}</p>
+			</label>
+			<input type="firstname" class="form-control" name="firstname" id="firstname" placeholder="{{sessions.firstname}}">
+		</div>
+		<div class="form-group">
+			<label for="lastname">
+				<p class="formtext">{{sessions.lastname}}</p>
+			</label>
+			<input type="lastname" class="form-control" name="lastname" id="lastname" placeholder="{{sessions.lastname}}">
+		</div>
+		<div class="form-group">
+			<label for="pseudo">
+				<p class="formtext">{{sessions.pseudo}}</p>
+			</label>
+			<input type="pseudo" class="form-control" name="pseudo" id="pseudo" placeholder="{{sessions.pseudo}}">
+		</div>
+		<div class="form-group">
+			<label for="birthday">
+				<p class="formtext">{{sessions.birthday}}</p>
+			</label>
+			<input type="date" id="birthday" name="birthday" min="1900-01-01" max="2119-11-31">
+		</div>
+		<div class="form-group">
+			<label for="email">
+				<p class="formtext">{{sessions.email}}</p>
+			</label>
+			<input type="email" class="form-control" name="email" id="email" placeholder="{{sessions.email}}">
+		</div>
+		<div class="form-group">
+			<label for="password">
+				<p class="formtext">{{sessions.password}}</p>
+			</label>
+			<input type="password" class="form-control" name="password" id="password">
+		</div>
+		<button type="submit" class="btn-sign bottom80">Submit</button>
+	</form>
+
+{% endblock %}
